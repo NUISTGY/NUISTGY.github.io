@@ -14,7 +14,7 @@
 <p>load_mnist函数以<strong>“(训练图像,训练标签),(测试图像,测试标签)”</strong>的形式返回读入的MNIST数据。</p>
 <p>此外,还可以像<strong>load_mnist(normalize=True,flatten=True,one_hot_label=False)</strong>这样,设置3个参数。</p>
 <ul>
-<li>第1个参数normalize设置是否将输入图像正规化为0.0<del>1.0的值。如果将该参数设置为 False,则输入图像的像素会保持原来的0</del>255。</li>
+<li>第1个参数normalize设置是否将输入图像正规化为0.0-1.0的值。如果将该参数设置为 False,则输入图像的像素会保持原来的0-255。</li>
 <li>第2个参数 flatten设置是否展开输入图像(变成一维数组)。如果将该参数设置为 False,则输入图像为1×28×28的三维数组;若设置为True,则输入图像会保存为由784个元素构成的一维数组。</li>
 <li>第3个参数one_hot_label设置是否将标签保存为one-hot表示(one-hot representation)。one-hot表示是仅正确解标签为1,其余皆为0的数组,就像[0,0,1,0,0,0,0,0,0,0]这样。当one_hot_label为Fase时,只是像7、2这样简单保存正确解标签;当 one_hot_label为True时,标签则保存为one-hot表示。</li>
 </ul>
