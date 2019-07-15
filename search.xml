@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>numpy之sum函数的axis参数</title>
+      <link href="/2019/07/15/numpy%E4%B8%AD%E7%9A%84axis%E5%8F%82%E6%95%B0/"/>
+      <url>/2019/07/15/numpy%E4%B8%AD%E7%9A%84axis%E5%8F%82%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p>没有axis参数表示全部相加，axis＝0表示按列相加，axis＝1表示按照行的方向。验证如下：<br><img src="https://5b0988e595225.cdn.sohucs.com/images/20171124/e90ccf3e7386468fa64c8b4bc0e60e5e.png" alt="axis&amp;sum"></p><h1 id="推广："><a href="#推广：" class="headerlink" title="推广："></a>推广：</h1><p>axis=i表示对array的第i个维度<strong>变化</strong>的方向进行操作！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> numpy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>🐟书踩坑（一）</title>
       <link href="/2019/07/14/%E9%B1%BC%E4%B9%A6%E8%B8%A9%E5%9D%91%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2019/07/14/%E9%B1%BC%E4%B9%A6%E8%B8%A9%E5%9D%91%EF%BC%88%E4%B8%80%EF%BC%89/</url>
