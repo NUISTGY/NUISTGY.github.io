@@ -5,8 +5,8 @@
     
     <entry>
       <title>关于ReLU的问题&amp;思考</title>
-      <link href="/2019/07/17/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/"/>
-      <url>/2019/07/17/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/</url>
+      <link href="/2019/07/16/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/"/>
+      <url>/2019/07/16/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/</url>
       
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><strong>今天看完🐟书后回头捋了一下，突然对ReLU激活函数产生了疑问。</strong></p><h2 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h2><p><strong>试想一下有X1，X2两个输入，对应三个输出的简易网络：</strong></p><p><img src="http://m.qpic.cn/psb?/V14eJTFY137vJk/CUAvD0jYlwZQP78b42L*xt5KHFwfdmhwvy1BD11V8CY!/b/dIoBAAAAAAAA&bo=sAI8ArACPAIDCSw!&rf=viewer_4&t=5" alt="eg net" title="markdown"></p><p>根据对应把权值W设为W11,W12,W13…W23<br><strong>显然通过矩阵运算：</strong></p><blockquote><p>Y1=W11·X1+W21·X2<br>Y2=W12·X1+W22·X2<br>Y3=W13·X1+W23·X2</p></blockquote><p>所得到的表达式依旧是X的<strong>线性表达式</strong><br>下面通过<strong>ReLU层</strong>（这里假设都&gt;0）</p><p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D119/sign=547aa813232eb938e86d7ef3ec6385fe/9d82d158ccbf6c818097871ab03eb13532fa409b.jpg" alt="ReLU" title="Pandao editor.md"><br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4263771563,3788752034&fm=26&gp=0.jpg" alt="ReLU" title="Pandao editor.md"><br>因为Y1，Y2，Y3＞0，故输出不变：</p><blockquote><p>Y1=W11·X1+W21·X2<br>Y2=W12·X1+W22·X2<br>Y3=W13·X1+W23·X2</p></blockquote><h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>我们知道引入激活函数的目的是为了<strong>使层神经网络表达能力就更加强大（不再是输入的线性组合，而是几乎可以逼近任意函数，详见上篇Blog）</strong>，而通过小实验发现，ReLU好像并没有改变原式的线性结构，反而是原式输出。那么是否有悖机器学习的原理呢？</p><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>首先肯定一点：<strong>上面的实验确实反映了ReLU没有改变实验对象的线性结构。</strong></p><h3 id="下面细说："><a href="#下面细说：" class="headerlink" title="下面细说："></a>下面细说：</h3><p>首先观察实验，实验的基础是Y1,Y2,Y3＞0这个条件，在这个条件下显然是等价于恒等函数的。也就是说Y被原样加工。因为原来的表达式是线性结构，所以激活之后依旧是线性结构。但是，这并不能说明ReLU对增强神经网络的表现力无用。</p><p>事实是，参与训练的数据首先不止2个（参考MNIST数据集，训练输入就6万个），其次对权值w的初始化是按标准差为0.01的高斯分布来进行的，<strong>这就肯定输入ReLU层的数据不恒正</strong>！<br><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2378713402,2138177216&fm=26&gp=0.jpg" alt="高斯分布" title="Pandao editor.md"><br>而小于0的则被赋值0，这意味着什么呢？<strong>线性结构被破坏！</strong></p><p>用<strong>矛盾推理法</strong>来想一下这个问题（假设ReLU不改变线性结构）：</p><ul><li>那么应改满足F(X)=M·X（矩阵乘法）——&gt;ReLU ——&gt;M·X——&gt;G(F(X))=N·M·X——&gt;ReLU ——&gt;N·M·X…</li><li>可事实是：权值的正态性不保证每次输入都是正值，所以中间会出现等于0的情况</li><li>也就是F(X)=M·X（矩阵乘法）——&gt;<strong>ReLU ——&gt;0——&gt;G(0）！=N·M·X</strong>——&gt;…</li><li>显然线性传递被中断</li><li>或者说形成了一个新的线性空间，新空间与恒等线性空间互相无法表示，使整个空间呈非线性结构</li></ul>]]></content>
       
@@ -262,6 +262,33 @@
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Person Re-identification数据集描述——Market-1501</title>
+      <link href="/2018/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/"/>
+      <url>/2018/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据集 </tag>
+            
+            <tag> 行人重识别 </tag>
+            
+        </tags>
       
     </entry>
     
