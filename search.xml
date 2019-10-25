@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Person Re-identification数据集描述——Market-1501</title>
+      <link href="/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/"/>
+      <url>/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-12/87140649.jpg" alt></p><h1 id="数据集简介"><a href="#数据集简介" class="headerlink" title="数据集简介"></a>数据集简介</h1><p><strong>Market-1501</strong> 数据集在清华大学校园中采集，夏天拍摄，在 2015 年构建并公开。它包括由6个摄像头（其中5个高清摄像头和1个低清摄像头）拍摄到的 1501 个行人、32668 个检测到的行人矩形框。每个行人至少由2个摄像头捕获到，并且在一个摄像头中可能具有多张图像。训练集有 751 人，包含 12,936 张图像，平均每个人有 17.2 张训练数据；测试集有 750 人，包含 19,732 张图像，平均每个人有 26.3 张测试数据。3368 张查询图像的行人检测矩形框是人工绘制的，而 gallery 中的行人检测矩形框则是使用DPM检测器检测得到的。该数据集提供的固定数量的训练集和测试集均可以在single-shot或multi-shot测试设置下使用。</p><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>Market-1501<br>　　├── bounding_box_test<br>　　　　　　　├── 0000_c1s1_000151_01.jpg<br>　　　　　　　├── 0000_c1s1_000376_03.jpg<br>　　　　　　　├── 0000_c1s1_001051_02.jpg<br>　　├── bounding_box_train<br>　　　　　　　├── 0002_c1s1_000451_03.jpg<br>　　　　　　　├── 0002_c1s1_000551_01.jpg<br>　　　　　　　├── 0002_c1s1_000801_01.jpg<br>　　├── gt_bbox<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c1s1_009376_00.jpg<br>　　　　　　　├── 0001_c2s1_001976_00.jpg<br>　　├── gt_query<br>　　　　　　　├── 0001_c1s1_001051_00_good.mat<br>　　　　　　　├── 0001_c1s1_001051_00_junk.mat<br>　　├── query<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c2s1_000301_00.jpg<br>　　　　　　　├── 0001_c3s1_000551_00.jpg<br>　　└── readme.txt</p><h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><ul><li><strong>“bounding_box_test”</strong>——用于测试集的 750 人，包含 19,732 张图像，前缀为 0000 表示在提取这 750 人的过程中DPM检测错的图（可能与query是同一个人），-1 表示检测出来其他人的图（不在这 750 人中）</li></ul><ul><li><p><strong>“bounding_box_train”</strong>——用于训练集的 751 人，包含 12,936 张图像</p></li><li><p><strong>“query”</strong>——为 750 人在每个摄像头中随机选择一张图像作为query，因此一个人的query最多有 6 个，共有 3,368 张图像</p></li><li><p><strong>“gt_query”</strong>——matlab格式，用于判断一个query的哪些图片是好的匹配（同一个人不同摄像头的图像）和不好的匹配（同一个人同一个摄像头的图像或非同一个人的图像）</p></li><li><p><strong>“gt_bbox”</strong>——手工标注的bounding box，用于判断DPM检测的bounding box是不是一个好的box</p></li></ul><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p><strong>以 0001_c1s1_000151_01.jpg 为例</strong></p><ul><li>0001 表示每个人的标签编号，从0001到1501；</li><li>c1 表示第一个摄像头(camera1)，共有6个摄像头；</li><li>s1 表示第一个录像片段(sequece1)，每个摄像机都有数个录像段；</li><li>000151 表示 c1s1 的第000151帧图片，视频帧率25fps；</li><li>01 表示 c1s1_001051 这一帧上的第1个检测框，由于采用DPM检测器，对于每一帧上的行人可能会框出好几个bbox。00 表示手工标注框</li></ul><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul><li>Zheng, Liang, et al. “Scalable Person Re-identification: A Benchmark.” IEEE International Conference on Computer Vision IEEE Computer Society, 2015:1116-1124.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> 激活函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于ReLU的问题&amp;思考</title>
       <link href="/2019/07/16/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/"/>
       <url>/2019/07/16/%E5%85%B3%E4%BA%8EReLU%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E6%80%9D%E8%80%83/</url>
@@ -262,33 +289,6 @@
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Person Re-identification数据集描述——Market-1501</title>
-      <link href="/2018/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/"/>
-      <url>/2018/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/</url>
-      
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据集 </tag>
-            
-            <tag> 行人重识别 </tag>
-            
-        </tags>
       
     </entry>
     
