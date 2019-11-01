@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>行人重识别代码实战（二）</title>
+      <link href="/2019/08/24/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2019/08/24/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1 id="代码描述"><a href="#代码描述" class="headerlink" title="代码描述"></a><strong>代码描述</strong></h1><p><strong>代码来源：</strong> <a href="https://github.com/layumi/Person_reID_baseline_pytorch" target="_blank" rel="noopener">https://github.com/layumi/Person_reID_baseline_pytorch</a></p><p><code>详细信息可见README.md</code></p><h1 id="代码描述-1"><a href="#代码描述-1" class="headerlink" title="代码描述"></a><strong>代码描述</strong></h1><p><strong>代码来源：</strong> <a href="https://github.com/layumi/Person_reID_baseline_pytorch" target="_blank" rel="noopener">https://github.com/layumi/Person_reID_baseline_pytorch</a></p><p><code>详细信息可见README.md</code></p><p>这次研究的是<code>model.py</code>原理是利用和修改预训练模型，代码原作者使用的是<strong>ImageNet</strong>预训练网络。</p><p>pytorch里引入方式如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models</span><br><span class="line">model =models.resnet50(pretrained = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>通过<code>print（model）</code>查看网络结构：<br><img src="http://m.qpic.cn/psb?/V14eJTFY137vJk/8MG9.hHNVHEStAe57dJObL680lUBAxhdtq2g*C0Z7R8!/b/dL8AAAAAAAAA&bo=DAZ3AgAAAAADB10!&rf=viewer_4&t=5" alt></p><p>实际使用时要做修改。考虑到Market1501训练集中有751个不同的人，所以要改变模型来训练Reid的分类器：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define the ResNet50-based Model</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ft_net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, class_num, droprate=<span class="number">0.5</span>, stride=<span class="number">2</span>)</span>:</span></span><br><span class="line">        super(ft_net, self).__init__()</span><br><span class="line">        model_ft = models.resnet50(pretrained=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># avg pooling to global pooling</span></span><br><span class="line">        <span class="keyword">if</span> stride == <span class="number">1</span>:</span><br><span class="line">            model_ft.layer4[<span class="number">0</span>].downsample[<span class="number">0</span>].stride = (<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">            model_ft.layer4[<span class="number">0</span>].conv2.stride = (<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        model_ft.avgpool = nn.AdaptiveAvgPool2d((<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">        self.model = model_ft</span><br><span class="line">        self.classifier = ClassBlock(<span class="number">2048</span>, class_num, droprate)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.model.conv1(x)</span><br><span class="line">        x = self.model.bn1(x)</span><br><span class="line">        x = self.model.relu(x)</span><br><span class="line">        x = self.model.maxpool(x)</span><br><span class="line">        x = self.model.layer1(x)</span><br><span class="line">        x = self.model.layer2(x)</span><br><span class="line">        x = self.model.layer3(x)</span><br><span class="line">        x = self.model.layer4(x)</span><br><span class="line">        x = self.model.avgpool(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), x.size(<span class="number">1</span>))</span><br><span class="line">        x = self.classifier(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure><p>更多细节在model.py中，里面还包含了其他的预训练模型以及对应的修改方法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 行人重识别 </tag>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>行人重识别代码实战（一）</title>
       <link href="/2019/08/22/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2019/08/22/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89/</url>
