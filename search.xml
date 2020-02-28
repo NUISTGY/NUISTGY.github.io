@@ -4,11 +4,127 @@
   
     
     <entry>
+      <title>Java学习之路--循环语句中标签的continue</title>
+      <link href="/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(20)/"/>
+      <url>/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(20)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试带标签的continue</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Java中保留了goto关键字但并不允许使用goto语句</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestLableContinue</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印101到150之间所有质数</span></span><br><span class="line">outer:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">101</span>;i&lt;=<span class="number">150</span>;i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++) &#123;</span><br><span class="line"><span class="keyword">if</span>(i%j==<span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">continue</span> outer;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(i+<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java学习之路--循环语句中的break</title>
+      <link href="/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(18)/"/>
+      <url>/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(18)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试循环语句中的break</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestBreak</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line"><span class="keyword">int</span> i = (<span class="keyword">int</span>)Math.round(<span class="number">100</span>*Math.random());</span><br><span class="line">System.out.println(i);</span><br><span class="line"><span class="keyword">if</span>(i==<span class="number">50</span>) &#123;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">total++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"循环次数为："</span>+total);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出循环次数为30</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java学习之路--循环语句中的continue</title>
+      <link href="/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(19)/"/>
+      <url>/2020/01/26/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(19)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试循环中的continue</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestContinue</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</span><br><span class="line"><span class="keyword">if</span>(i%<span class="number">3</span>==<span class="number">0</span>) &#123;</span><br><span class="line"><span class="comment">//能被3整除则跳过这次循环</span></span><br><span class="line"><span class="keyword">continue</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//否则输出不能被3整除的数</span></span><br><span class="line">System.out.print(i+<span class="string">"  "</span>);</span><br><span class="line">count++;</span><br><span class="line"><span class="keyword">if</span>(count%<span class="number">5</span>==<span class="number">0</span>) &#123;</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java学习之路--for循环</title>
       <link href="/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(17)/"/>
       <url>/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(17)/</url>
       
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *测试for循环</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFor</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</span><br><span class="line">sum+=i;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 1. 执行初始化语句：i=1</span></span><br><span class="line"><span class="comment"> * 2. 执行判断：i&lt;=100</span></span><br><span class="line"><span class="comment"> * 3. 执行循环体：sum+=i</span></span><br><span class="line"><span class="comment"> * 4. 执行步进：i++</span></span><br><span class="line"><span class="comment"> * 5. 返回第2步</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java学习之路--while循环</title>
+      <link href="/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(16)/"/>
+      <url>/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(16)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试while</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestWhile</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">/////////////////while/////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//while的循环条件必须是布尔型，0或1无效</span></span><br><span class="line"><span class="keyword">while</span>(i &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">sum += i;</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum);</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////do-while////////////////</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span>;</span><br><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">sum += i;</span><br><span class="line">i++;</span><br><span class="line">&#125;<span class="keyword">while</span>(i &lt;= <span class="number">100</span>);</span><br><span class="line">System.out.println(sum);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -67,35 +183,6 @@
       <url>/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(14)/</url>
       
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * If选择语句</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIf</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">double</span> x = <span class="number">6</span>*Math.random();</span><br><span class="line"><span class="keyword">int</span> age = (<span class="keyword">int</span>)(<span class="number">80</span>*Math.random());</span><br><span class="line">System.out.println(x);</span><br><span class="line">System.out.println(age);</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////if///////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(x &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"Small"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"Large"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////if-else/////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(x &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"Small"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">System.out.println(<span class="string">"Large"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///////Multi-if-else///////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(age &lt;= <span class="number">15</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"儿童"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(age &lt;= <span class="number">25</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"青年"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(age &lt;= <span class="number">45</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"中年"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(age &lt;= <span class="number">80</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"老年"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程 </tag>
-            
-            <tag> 学习 </tag>
-            
-            <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java学习之路--while循环</title>
-      <link href="/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(16)/"/>
-      <url>/2020/01/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(16)/</url>
-      
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试while</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 控制语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestWhile</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">/////////////////while/////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//while的循环条件必须是布尔型，0或1无效</span></span><br><span class="line"><span class="keyword">while</span>(i &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">sum += i;</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum);</span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////do-while////////////////</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span>;</span><br><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">sum += i;</span><br><span class="line">i++;</span><br><span class="line">&#125;<span class="keyword">while</span>(i &lt;= <span class="number">100</span>);</span><br><span class="line">System.out.println(sum);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -352,11 +439,11 @@
     
     
     <entry>
-      <title>Java学习之路--注释</title>
-      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/"/>
-      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/</url>
+      <title>Java学习之路--java标识符</title>
+      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(2)/"/>
+      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(2)/</url>
       
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符; <span class="comment">//这是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComment</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args <span class="comment">/*多行注释也可用作行内注释*/</span>)</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"Hello World !"</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java标识符用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIdentifer</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a123 = <span class="number">1</span>;</span><br><span class="line">                             <span class="comment">//int 123a = 2; 数字不能打头</span></span><br><span class="line"><span class="keyword">int</span> $abc = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> _abc = <span class="number">4</span>; </span><br><span class="line"><span class="keyword">int</span>  年龄 = <span class="number">18</span>; <span class="comment">//Java支持中文变量但不建议使用</span></span><br><span class="line">             <span class="comment">//int public =5;   关键字不能作为变量去使用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -386,6 +473,35 @@
       <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(5)/</url>
       
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java字符类型和布尔类型</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPrimitiveDateType</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> a = <span class="string">'A'</span>;</span><br><span class="line"><span class="keyword">char</span> b =  <span class="string">'中'</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'1'</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 对于字符类型数据，Java使用UNICODE编码表示</span></span><br><span class="line"><span class="comment"> * 每个字符占2字节 </span></span><br><span class="line"><span class="comment"> * 字符用' '  字符串用" "</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//转义字符</span></span><br><span class="line">System.out.println(<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出195</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出ab</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'\''</span>+<span class="string">'b'</span>);  <span class="comment">//输出a'b</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//测试布尔类型</span></span><br><span class="line">  <span class="comment">//布尔类型数据占一位而不是一字节，且不可以用'0'或'1'</span></span><br><span class="line"><span class="keyword">boolean</span> man = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">boolean</span> woman = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(man) &#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java学习之路--注释</title>
+      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/"/>
+      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符; <span class="comment">//这是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComment</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args <span class="comment">/*多行注释也可用作行内注释*/</span>)</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"Hello World !"</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -444,35 +560,6 @@
       <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(3)/</url>
       
         <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java常量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestConstant</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//age和name都是变量，数字18、20和字符串“GeYu”“GEYU”是字面常量</span></span><br><span class="line"><span class="keyword">int</span> age = <span class="number">18</span>;</span><br><span class="line">age = <span class="number">20</span>;</span><br><span class="line">String name = <span class="string">"GeYu"</span>;</span><br><span class="line">name = <span class="string">"GEYU"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">             <span class="comment">//PI++; 报错，final将PI定义为了符号常量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 命名规范</span></span><br><span class="line"><span class="comment"> * 常量：全部大写，可配合下划线：MAX_VALUE</span></span><br><span class="line"><span class="comment"> * 类名：首字母大写，驼峰原则：HelloWorld、FatherClass</span></span><br><span class="line"><span class="comment"> * 类成员变量、类方法：首字母小写，驼峰原则：monthSalary、getSalary()</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程 </tag>
-            
-            <tag> 学习 </tag>
-            
-            <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java学习之路--java标识符</title>
-      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(2)/"/>
-      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(2)/</url>
-      
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java标识符用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIdentifer</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a123 = <span class="number">1</span>;</span><br><span class="line">                             <span class="comment">//int 123a = 2; 数字不能打头</span></span><br><span class="line"><span class="keyword">int</span> $abc = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> _abc = <span class="number">4</span>; </span><br><span class="line"><span class="keyword">int</span>  年龄 = <span class="number">18</span>; <span class="comment">//Java支持中文变量但不建议使用</span></span><br><span class="line">             <span class="comment">//int public =5;   关键字不能作为变量去使用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
