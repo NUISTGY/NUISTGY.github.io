@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Java学习之路--java算数运算符(1)</title>
+      <link href="/2020/01/22/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(7)/"/>
+      <url>/2020/01/22/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(7)/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试算数运算符</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TsetOperator_1</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 整数运算：</span></span><br><span class="line"><span class="comment"> * 如果整数操作数里有long，则结果也为long</span></span><br><span class="line"><span class="comment"> * 没有long时，结果为int。即使操作数全为short、byte，结果也是int</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">byte</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span>  b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>  ans1 = a+b;</span><br><span class="line">  <span class="comment">//byte ans2 = a+b;  报错</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">long</span> ans3 = b+c;</span><br><span class="line">  <span class="comment">//int  ans4 = b+c;  报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 浮点运算：</span></span><br><span class="line"><span class="comment"> * 如果操作数涉及浮点数,</span></span><br><span class="line"><span class="comment"> * 如果两个浮点数有一个为double，则结果为double</span></span><br><span class="line"><span class="comment"> * 只有两个浮点数数都为float，结果才为float</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">float</span> d = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">float</span> e = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">double</span> f = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">float</span> ans5 = d+e;</span><br><span class="line">        <span class="keyword">double</span> ans6 = d+e;</span><br><span class="line">      <span class="keyword">double</span> ans7 = e+f;</span><br><span class="line">      <span class="comment">//float ans8 = e+f;  报错</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 整数与浮点运算：</span></span><br><span class="line"><span class="comment"> * 只要操作数涉及浮点数，则向浮点数兼容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">                           * 取模运算</span></span><br><span class="line"><span class="comment">                           *结果（余数）的符号与左操作数相同 </span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="number">9</span>%<span class="number">5</span>);</span><br><span class="line">        System.out.println(-<span class="number">9</span>%<span class="number">5</span>);</span><br><span class="line">        System.out.println(<span class="number">9</span>%-<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java学习之路--java类型转换</title>
       <link href="/2020/01/22/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(6)/"/>
       <url>/2020/01/22/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(6)/</url>
@@ -33,11 +62,11 @@
     
     
     <entry>
-      <title>Java学习之路--java注释</title>
-      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/"/>
-      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/</url>
+      <title>Java学习之路--java字符类型和布尔类型</title>
+      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(5)/"/>
+      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(5)/</url>
       
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符; <span class="comment">//这是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComment</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args <span class="comment">/*多行注释也可用作行内注释*/</span>)</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"Hello World !"</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java字符类型和布尔类型</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPrimitiveDateType</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> a = <span class="string">'A'</span>;</span><br><span class="line"><span class="keyword">char</span> b =  <span class="string">'中'</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'1'</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 对于字符类型数据，Java使用UNICODE编码表示</span></span><br><span class="line"><span class="comment"> * 每个字符占2字节 </span></span><br><span class="line"><span class="comment"> * 字符用' '  字符串用" "</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//转义字符</span></span><br><span class="line">System.out.println(<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出195</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出ab</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'\''</span>+<span class="string">'b'</span>);  <span class="comment">//输出a'b</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//测试布尔类型</span></span><br><span class="line">  <span class="comment">//布尔类型数据占一位而不是一字节，且不可以用'0'或'1'</span></span><br><span class="line"><span class="keyword">boolean</span> man = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">boolean</span> woman = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(man) &#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -149,11 +178,11 @@
     
     
     <entry>
-      <title>Java学习之路--java字符类型和布尔类型</title>
-      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(5)/"/>
-      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(5)/</url>
+      <title>Java学习之路--java注释</title>
+      <link href="/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/"/>
+      <url>/2020/01/20/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF(1)/</url>
       
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java字符类型和布尔类型</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPrimitiveDateType</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> a = <span class="string">'A'</span>;</span><br><span class="line"><span class="keyword">char</span> b =  <span class="string">'中'</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'1'</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 对于字符类型数据，Java使用UNICODE编码表示</span></span><br><span class="line"><span class="comment"> * 每个字符占2字节 </span></span><br><span class="line"><span class="comment"> * 字符用' '  字符串用" "</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//转义字符</span></span><br><span class="line">System.out.println(<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出195</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'b'</span>);  <span class="comment">//输出ab</span></span><br><span class="line">System.out.println(<span class="string">""</span>+<span class="string">'a'</span>+<span class="string">'\''</span>+<span class="string">'b'</span>);  <span class="comment">//输出a'b</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//测试布尔类型</span></span><br><span class="line">  <span class="comment">//布尔类型数据占一位而不是一字节，且不可以用'0'或'1'</span></span><br><span class="line"><span class="keyword">boolean</span> man = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">boolean</span> woman = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(man) &#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 葛宇</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> 数据类型和运算符; <span class="comment">//这是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComment</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args <span class="comment">/*多行注释也可用作行内注释*/</span>)</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"Hello World !"</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -323,6 +352,33 @@
     
     
     <entry>
+      <title>Person Re-identification数据集描述——Market-1501</title>
+      <link href="/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/"/>
+      <url>/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/</url>
+      
+        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-12/87140649.jpg" alt></p><h1 id="数据集简介"><a href="#数据集简介" class="headerlink" title="数据集简介"></a>数据集简介</h1><p><strong>Market-1501</strong> 数据集在清华大学校园中采集，夏天拍摄，在 2015 年构建并公开。它包括由6个摄像头（其中5个高清摄像头和1个低清摄像头）拍摄到的 1501 个行人、32668 个检测到的行人矩形框。每个行人至少由2个摄像头捕获到，并且在一个摄像头中可能具有多张图像。训练集有 751 人，包含 12,936 张图像，平均每个人有 17.2 张训练数据；测试集有 750 人，包含 19,732 张图像，平均每个人有 26.3 张测试数据。3368 张查询图像的行人检测矩形框是人工绘制的，而 gallery 中的行人检测矩形框则是使用DPM检测器检测得到的。该数据集提供的固定数量的训练集和测试集均可以在single-shot或multi-shot测试设置下使用。</p><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>Market-1501<br>　　├── bounding_box_test<br>　　　　　　　├── 0000_c1s1_000151_01.jpg<br>　　　　　　　├── 0000_c1s1_000376_03.jpg<br>　　　　　　　├── 0000_c1s1_001051_02.jpg<br>　　├── bounding_box_train<br>　　　　　　　├── 0002_c1s1_000451_03.jpg<br>　　　　　　　├── 0002_c1s1_000551_01.jpg<br>　　　　　　　├── 0002_c1s1_000801_01.jpg<br>　　├── gt_bbox<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c1s1_009376_00.jpg<br>　　　　　　　├── 0001_c2s1_001976_00.jpg<br>　　├── gt_query<br>　　　　　　　├── 0001_c1s1_001051_00_good.mat<br>　　　　　　　├── 0001_c1s1_001051_00_junk.mat<br>　　├── query<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c2s1_000301_00.jpg<br>　　　　　　　├── 0001_c3s1_000551_00.jpg<br>　　└── readme.txt</p><h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><ul><li><strong>“bounding_box_test”</strong>——用于测试集的 750 人，包含 19,732 张图像，前缀为 0000 表示在提取这 750 人的过程中DPM检测错的图（可能与query是同一个人），-1 表示检测出来其他人的图（不在这 750 人中）</li></ul><ul><li><p><strong>“bounding_box_train”</strong>——用于训练集的 751 人，包含 12,936 张图像</p></li><li><p><strong>“query”</strong>——为 750 人在每个摄像头中随机选择一张图像作为query，因此一个人的query最多有 6 个，共有 3,368 张图像</p></li><li><p><strong>“gt_query”</strong>——matlab格式，用于判断一个query的哪些图片是好的匹配（同一个人不同摄像头的图像）和不好的匹配（同一个人同一个摄像头的图像或非同一个人的图像）</p></li><li><p><strong>“gt_bbox”</strong>——手工标注的bounding box，用于判断DPM检测的bounding box是不是一个好的box</p></li></ul><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p><strong>以 0001_c1s1_000151_01.jpg 为例</strong></p><ul><li>0001 表示每个人的标签编号，从0001到1501；</li><li>c1 表示第一个摄像头(camera1)，共有6个摄像头；</li><li>s1 表示第一个录像片段(sequece1)，每个摄像机都有数个录像段；</li><li>000151 表示 c1s1 的第000151帧图片，视频帧率25fps；</li><li>01 表示 c1s1_001051 这一帧上的第1个检测框，由于采用DPM检测器，对于每一帧上的行人可能会框出好几个bbox。00 表示手工标注框</li></ul><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul><li>Zheng, Liang, et al. “Scalable Person Re-identification: A Benchmark.” IEEE International Conference on Computer Vision IEEE Computer Society, 2015:1116-1124.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据集 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据集 </tag>
+            
+            <tag> 行人重识别 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>行人重识别初识</title>
       <link href="/2019/07/31/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E5%88%9D%E8%AF%86/"/>
       <url>/2019/07/31/%E8%A1%8C%E4%BA%BA%E9%87%8D%E8%AF%86%E5%88%AB%E5%88%9D%E8%AF%86/</url>
@@ -344,33 +400,6 @@
             <tag> 深度学习 </tag>
             
             <tag> 图像处理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Person Re-identification数据集描述——Market-1501</title>
-      <link href="/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/"/>
-      <url>/2019/07/31/Person%20Re-identification%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8F%8F%E8%BF%B0%E2%80%94%E2%80%94Market-1501/</url>
-      
-        <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-12/87140649.jpg" alt></p><h1 id="数据集简介"><a href="#数据集简介" class="headerlink" title="数据集简介"></a>数据集简介</h1><p><strong>Market-1501</strong> 数据集在清华大学校园中采集，夏天拍摄，在 2015 年构建并公开。它包括由6个摄像头（其中5个高清摄像头和1个低清摄像头）拍摄到的 1501 个行人、32668 个检测到的行人矩形框。每个行人至少由2个摄像头捕获到，并且在一个摄像头中可能具有多张图像。训练集有 751 人，包含 12,936 张图像，平均每个人有 17.2 张训练数据；测试集有 750 人，包含 19,732 张图像，平均每个人有 26.3 张测试数据。3368 张查询图像的行人检测矩形框是人工绘制的，而 gallery 中的行人检测矩形框则是使用DPM检测器检测得到的。该数据集提供的固定数量的训练集和测试集均可以在single-shot或multi-shot测试设置下使用。</p><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>Market-1501<br>　　├── bounding_box_test<br>　　　　　　　├── 0000_c1s1_000151_01.jpg<br>　　　　　　　├── 0000_c1s1_000376_03.jpg<br>　　　　　　　├── 0000_c1s1_001051_02.jpg<br>　　├── bounding_box_train<br>　　　　　　　├── 0002_c1s1_000451_03.jpg<br>　　　　　　　├── 0002_c1s1_000551_01.jpg<br>　　　　　　　├── 0002_c1s1_000801_01.jpg<br>　　├── gt_bbox<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c1s1_009376_00.jpg<br>　　　　　　　├── 0001_c2s1_001976_00.jpg<br>　　├── gt_query<br>　　　　　　　├── 0001_c1s1_001051_00_good.mat<br>　　　　　　　├── 0001_c1s1_001051_00_junk.mat<br>　　├── query<br>　　　　　　　├── 0001_c1s1_001051_00.jpg<br>　　　　　　　├── 0001_c2s1_000301_00.jpg<br>　　　　　　　├── 0001_c3s1_000551_00.jpg<br>　　└── readme.txt</p><h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><ul><li><strong>“bounding_box_test”</strong>——用于测试集的 750 人，包含 19,732 张图像，前缀为 0000 表示在提取这 750 人的过程中DPM检测错的图（可能与query是同一个人），-1 表示检测出来其他人的图（不在这 750 人中）</li></ul><ul><li><p><strong>“bounding_box_train”</strong>——用于训练集的 751 人，包含 12,936 张图像</p></li><li><p><strong>“query”</strong>——为 750 人在每个摄像头中随机选择一张图像作为query，因此一个人的query最多有 6 个，共有 3,368 张图像</p></li><li><p><strong>“gt_query”</strong>——matlab格式，用于判断一个query的哪些图片是好的匹配（同一个人不同摄像头的图像）和不好的匹配（同一个人同一个摄像头的图像或非同一个人的图像）</p></li><li><p><strong>“gt_bbox”</strong>——手工标注的bounding box，用于判断DPM检测的bounding box是不是一个好的box</p></li></ul><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p><strong>以 0001_c1s1_000151_01.jpg 为例</strong></p><ul><li>0001 表示每个人的标签编号，从0001到1501；</li><li>c1 表示第一个摄像头(camera1)，共有6个摄像头；</li><li>s1 表示第一个录像片段(sequece1)，每个摄像机都有数个录像段；</li><li>000151 表示 c1s1 的第000151帧图片，视频帧率25fps；</li><li>01 表示 c1s1_001051 这一帧上的第1个检测框，由于采用DPM检测器，对于每一帧上的行人可能会框出好几个bbox。00 表示手工标注框</li></ul><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul><li>Zheng, Liang, et al. “Scalable Person Re-identification: A Benchmark.” IEEE International Conference on Computer Vision IEEE Computer Society, 2015:1116-1124.</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据集 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据集 </tag>
-            
-            <tag> 行人重识别 </tag>
             
         </tags>
       
